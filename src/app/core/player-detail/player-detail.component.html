@@ -1,0 +1,40 @@
+
+<h1>{{playerName}}</h1>
+
+<tabset #staticTabs>
+  <tab heading="Player" [disabled]="skillInProgress">
+
+    <loader *ngIf="skillInProgress"></loader>
+
+    <div class="table-responsive" *ngIf="!skillInProgress">
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Skill</th>
+          <th scope="col">Exp</th>
+          <th scope="col">Level</th>
+          <th scope="col">Rank</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let skill of playerSkill">
+          <th class="skill-name" scope="row"
+              [ngStyle]="{'background-image': 'url(assets/skills/' + skill.name + '.png)'}">{{skill.name}}</th>
+          <td>{{skill.exp}}</td>
+          <td>{{skill.level}}</td>
+          <td>{{skill.rank}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </tab>
+  <tab heading="XP Tracker" [disabled]="skillInProgress">
+
+    <loader *ngIf="skillInProgress"></loader>
+
+  </tab>
+  <tab heading="User Stats" [disabled]="true"></tab>
+</tabset>
+
+

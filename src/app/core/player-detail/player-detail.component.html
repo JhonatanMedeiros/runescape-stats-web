@@ -1,12 +1,14 @@
 
-<h1>{{playerName}}</h1>
+<h1>{{skillInProgress ? 'Carregando ..' : playerName}}</h1>
 
 <tabset #staticTabs>
-  <tab heading="Player" [disabled]="skillInProgress">
+  <tab heading="Player" [disabled]="skillInProgress || notFound">
 
     <loader *ngIf="skillInProgress"></loader>
 
-    <div class="table-responsive" *ngIf="!skillInProgress">
+    <h5 *ngIf="notFound">Não encontramos o player <b>{{playerName}}</b> !</h5>
+
+    <div class="table-responsive" *ngIf="!skillInProgress && !notFound">
       <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -29,7 +31,7 @@
     </div>
 
   </tab>
-  <tab heading="XP Tracker" [disabled]="skillInProgress">
+  <tab heading="XP Tracker" [disabled]="skillInProgress || notFound">
 
     <loader *ngIf="skillInProgress"></loader>
 

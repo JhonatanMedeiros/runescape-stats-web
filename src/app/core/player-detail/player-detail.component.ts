@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs/Subscription';
@@ -17,7 +17,9 @@ export class PlayerDetailComponent implements OnInit, OnDestroy {
   playerSkill: any[] = [];
 
   skillInProgress: boolean = false;
+  notFound: boolean = false;
 
+  // Subscription
   subscribe: Subscription;
 
   constructor(
@@ -57,6 +59,7 @@ export class PlayerDetailComponent implements OnInit, OnDestroy {
   searchPlayer(playerName: string): void {
 
     this.skillInProgress = true;
+    this.notFound = false;
 
     this.playerService.getPlayer(playerName)
       .subscribe(
@@ -75,7 +78,11 @@ export class PlayerDetailComponent implements OnInit, OnDestroy {
 
         },
         error => {
-          console.log(error);
+
+          this.playerSkill = [];
+          this.skillInProgress = false;
+          this.notFound = true;
+
         },
         () => {
           this.skillInProgress = false;

@@ -20,8 +20,6 @@ export class NavBarComponent implements OnInit {
 
   searchPlayer(): void {
 
-    console.log(this.playerInput);
-
     this.route.navigate(['player/' + this.playerInput]);
 
   }

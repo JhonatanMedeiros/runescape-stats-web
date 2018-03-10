@@ -20,11 +20,11 @@
         </thead>
         <tbody>
         <tr *ngFor="let skill of playerSkill">
-          <th class="skill-name" scope="row"
+          <th class="skill-name" scope="row" title="{{skill.name}}"
               [ngStyle]="{'background-image': 'url(assets/skills/' + skill.name + '.png)'}">{{skill.name}}</th>
-          <td>{{skill.exp}}</td>
-          <td>{{skill.level}}</td>
-          <td>{{skill.rank}}</td>
+          <td title="{{skill.exp}}">{{skill.exp}}</td>
+          <td title="{{skill.level}}">{{skill.level}}</td>
+          <td title="{{skill.rank}}">{{skill.rank}}</td>
         </tr>
         </tbody>
       </table>
@@ -34,6 +34,8 @@
   <tab heading="XP Tracker" [disabled]="skillInProgress || notFound">
 
     <loader *ngIf="skillInProgress"></loader>
+
+    <p>Em breve!</p>
 
   </tab>
   <tab heading="User Stats" [disabled]="true"></tab>

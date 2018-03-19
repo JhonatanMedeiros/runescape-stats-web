@@ -16,7 +16,8 @@ export class PlayerService {
 
 
   getPlayer(playerName: string): Observable<any> {
-    return this.http.get(environment.server_url + playerName)
+
+    return this.http.get(environment.server_url + 'player/search/' + playerName)
       .catch(this.handleError);
   }
 

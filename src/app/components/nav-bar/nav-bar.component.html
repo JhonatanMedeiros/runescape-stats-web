@@ -17,12 +17,14 @@
          <a class="nav-link" routerLink="/player">Sobre</a>
        </li>
      </ul>
-     <form class="form-inline my-2 my-lg-0">
+
+     <form class="form-inline my-2 my-lg-0" (submit)="searchPlayer()">
        <input class="form-control mr-sm-2" type="search"
               placeholder="Player" aria-label="Search"
               required [(ngModel)]="playerInput" name="playerInput">
-       <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="searchPlayer()">Buscar</button>
+       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
      </form>
+
    </div>
  </div>
 </nav>

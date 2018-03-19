@@ -5,11 +5,11 @@
       <p>Veja suas Habilidade, seu progresso e mais ...</p>
 
 
-      <form class="form-inline">
+      <form class="form-inline" (submit)="searchPlayer()">
         <input type="text" class="form-control mb-2 mr-sm-2" id="PlayerFormInput" placeholder="Player"
                required [(ngModel)]="playerInput" name="playerInput">
 
-        <button type="button" (click)="searchPlayer()" class="btn btn-primary mb-2">Buscar</button>
+        <button type="submit" class="btn btn-primary mb-2">Buscar</button>
       </form>
 
     </div>

@@ -9,6 +9,8 @@ import { CoreRoutingModule } from './core.router';
 
 import { PlayerComponent } from './player/player.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
+import { HiscoresComponent } from './hiscores/hiscores.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import { PlayerDetailComponent } from './player-detail/player-detail.component';
   ],
   declarations: [
     PlayerComponent,
-    PlayerDetailComponent
+    PlayerDetailComponent,
+    HiscoresComponent,
+    AboutComponent
   ]
 })
 export class CoreModule { }

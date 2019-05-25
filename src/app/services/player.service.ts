@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
-import 'rxjs/add/operator/catch';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs/internal/observable/throwError';
 
 import { environment } from '../../environments/environment';
+
 
 @Injectable()
 export class PlayerService {
@@ -18,10 +18,8 @@ export class PlayerService {
   getPlayer(playerName: string): Observable<any> {
 
     return this.http.get(environment.server_url + 'player/search/' + playerName)
-      .catch(this.handleError);
+      .pipe(catchError(this.handleError));
   }
-
-
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -34,8 +32,8 @@ export class PlayerService {
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
     }
-    // return an ErrorObservable with a user-facing error message
-    return new ErrorObservable(
+    // return an observable with a user-facing error message
+    return throwError(
       'Something bad happened; please try again later.');
   }
 

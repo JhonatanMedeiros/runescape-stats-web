@@ -23,7 +23,7 @@
     "@angular/router": "7.2.15",
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "ngx-bootstrap": "^2.0.2",
     "rxjs": "^6.5.2",
     "rxjs-compat": "^6.5.2",
